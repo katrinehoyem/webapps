@@ -11,7 +11,7 @@ app.use("/statics/*", serveStatic({root: "./"}));
 
 app.get('/json', async (c) => {
     const data = await readFile("./data.json", "utf-8");
-    return c.json(data)
+    return c.json(JSON.parse(data))
 });
 
 const port = 3999;
