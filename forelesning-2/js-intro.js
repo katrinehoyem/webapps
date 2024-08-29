@@ -28,4 +28,9 @@ const students = [
     },
 ]
 
-const getStudentAboveBirthYear = () => {}
+const getStudentAboveBirthYear = (students = [], birthYear) => {
+    return students.filter((student) => students.birthYear > birthYear)
+}
+
+
+const studentsAbove = getStudentAboveBirthYear(undefined, 1991)
