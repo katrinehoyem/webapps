@@ -46,3 +46,9 @@ const getStudent = async (
       .filter((student) => typeof student !== "string")
       .find((student) => student[id]);
   };
+
+  const students: Student[] = ['Lars', {'a-b-c': {name: "Frida", birthYear: 1992}}]
+
+  getStudent(students, "a-b-c").then((data) => console.log(data))
+
+console.log("Hey"); 
