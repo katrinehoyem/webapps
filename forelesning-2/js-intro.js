@@ -95,7 +95,12 @@ const hiofLocation = {
   }
 
   hiofLocationCopy.contact.email = 'demo'
-  hiofLocationCopy
-  hiofLocation
 
-  
+  const hiofLocationDeep = structuredClone(hiofLocation)
+  hiofLocationDeep.contact.email = 'demo'
+
+  const studentWithHiofData = {
+    ...lars,
+    location: hiofLocation
+  }
+
