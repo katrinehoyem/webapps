@@ -24,7 +24,7 @@ const students = [
         name: 'Simone',
         birthYear: 2001,
         isNew: true,
-        role: 'superadmin'
+        role: 'student'
     },
 ]
 
@@ -33,4 +33,19 @@ const getStudentAboveBirthYear = (students = [], birthYear) => {
 }
 
 
-const studentsAbove = getStudentAboveBirthYear(undefined, 1991)
+const studentsAbove = getStudentAboveBirthYear(students, 1991) 
+
+const transformStudents =  students => 
+    students.map(student =>({
+        ...student,
+        age: new Date().getFullYear() = student.birthYear
+}))
+
+const studentsWithAge = transformStudents(students)
+
+const findStudent = (students, name) => {
+    return students.find(student => student.name.toLowerCase() === name?.toLowerCase())
+}
+
+const studentFound = findStudent(students, 'lars'
+)
