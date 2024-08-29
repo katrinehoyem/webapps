@@ -47,5 +47,55 @@ const findStudent = (students, name) => {
     return students.find(student => student.name.toLowerCase() === name?.toLowerCase())
 }
 
-const studentFound = findStudent(students, 'lars'
-)
+const studentFound = findStudent(students, 'lars')
+
+const roles = ['admin', 'superadmin']
+
+const hasAccsess = (roles, students) => {
+    return students.filter(student => {
+        return roles.includes(student.role)
+    })
+}
+
+const adminRoles = hasAccsess(['admin'], students)
+const studentRoles = hasAccsess(['student'], students)
+const adminOrSuperadmins = hasAccsess(['admin','superadmin'], students)
+
+const omitName = (students) => {
+    return students.map(student => {
+        const {name, ...rest } = student
+        return rest
+    })
+}
+
+const studentNameOmitted = omitName(students)
+
+const omitNameSimple = student => students.map(({ name, ...rest }) => rest)
+
+const studentCopy = [...students]
+
+studentCopy[1].name ='Name changed'
+
+const larsCopy = {... lars}
+larsCopy.name = 'Lars Changes'
+larsCopy
+lars
+
+const hiofLocation = {
+    name: 'HIOF',
+    street: 'Haldenveien 1',
+    postal: '1520',
+    contact: {
+      email: 'halden@email.no'
+    }
+  }
+
+  const hiofLocationCopy = {
+    ... hiofLocation
+  }
+
+  hiofLocationCopy.contact.email = 'demo'
+  hiofLocationCopy
+  hiofLocation
+
+  
