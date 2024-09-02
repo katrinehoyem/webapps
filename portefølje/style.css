@@ -1,9 +1,7 @@
 *{
     box-sizing: border-box;
 }
-body{
-    
-}
+
 header {
     display: grid;
     padding: 10px;
@@ -42,16 +40,8 @@ main {
     padding: 10px;
 
 }
-article{
 
-}
-footer{
-    display: grid;
-    text-align: center;
-    border: 1px solid black;
-    background-color: rgb(231, 192,250);
-    padding: 20px;
-}
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -74,3 +64,10 @@ footer{
   .dropdown:hover .dropdown-content {
     display: block;
   }
+  footer{
+    display: grid;
+    text-align: center;
+    border: 1px solid black;
+    background-color: rgb(231, 192,250);
+    padding: 20px;
+}
