@@ -6,8 +6,9 @@ body{
 }
 header {
     display: grid;
-    padding: 1em;
+    padding: 10px;
     border: 1px solid black;
+    background-color: rgb(231, 192,250);
 
 }
 li{
@@ -17,16 +18,13 @@ li{
 }
 main {
     display: grid;
+    background-color: rgb(238, 214, 249);
 }
 
-.make-new-project{
+.make-new-project {
     border: 1px solid black;
-    float: right;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 10px;  
-    flex-direction: row;
+
+    padding: 10px;
 }
 .my-projects-container {
     border: 1px solid black;
@@ -35,11 +33,13 @@ main {
     gap: 10px;  
     flex-direction: row;
     justify-content: space-around;
+    padding: 10px;
     align-items: center;
 }
 .project-item{
     border: 1px solid #333;
     border-radius: 5px;
+    padding: 10px;
 
 }
 article{
@@ -49,6 +49,8 @@ footer{
     display: grid;
     text-align: center;
     border: 1px solid black;
+    background-color: rgb(231, 192,250);
+    padding: 20px;
 }
 .dropdown-content {
     display: none;
