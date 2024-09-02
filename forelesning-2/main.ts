@@ -22,3 +22,10 @@ const fetchDataFromServer = async () => {
 };
 
 fetchDataFromServer();
+
+const jsonData = await readFile("./assets/data.json", "utf-8");
+
+await fs.writeFile(
+  resolve(import.meta.dirname,"...", "assets", "data.json"),
+  JSON.stringify([...JSON.parse(jsonData), habit], null, 2)
+)
