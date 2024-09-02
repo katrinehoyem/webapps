@@ -20,14 +20,17 @@ main {
 }
 
 .make-new-project {
+    display: grid;
     border: 1px solid black;
-
+    width: 50%;
     padding: 10px;
+    margin: 20px;
 }
 .my-projects-container {
     border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
+    width: 50%;
     gap: 10px;  
     flex-direction: row;
     justify-content: space-around;
