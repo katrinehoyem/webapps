@@ -5,6 +5,7 @@ body{
     
 }
 header {
+    display: grid;
     padding: 1em;
     border: 1px solid black;
 
@@ -12,12 +13,10 @@ header {
 li{
     display: block;
     padding: 0.5em 0.5em;
-    fontsize: 1.3em;
-    
 
 }
 main {
-
+    display: grid;
 }
 
 .make-new-project{
@@ -47,6 +46,7 @@ article{
 
 }
 footer{
+    display: grid;
     text-align: center;
     border: 1px solid black;
 }
