@@ -12,7 +12,7 @@
 const form = document.getElementById('myProjects');
 const projects= [];
 
-form.addEventListener('add-project-button', function(event){
+form.addEventListener('add-project-button', aync, function(event){
     event.preventDefault();
 
     const formData = {};
@@ -31,21 +31,21 @@ form.addEventListener('add-project-button', function(event){
     };
 
     projects.push(newProject);
+    try {
+        const response = await fetch("http://localhost:3000/add", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(newProject),
+        })
+    } catch (error) {
+        console.error("An error occured sending the data to the server");
+    }
     
 
 });
 
-try {
-    const response = await fetch("http://localhost:3000/add", {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json",
-        },
-        body: JSON.stringify(newProject),
-    })
-} catch (error) {
-    console.error("An error occured sending the data to the server");
-}
 
 function loadProjects(){
     let projects = JSON.parse(window.localStorage.getItem("myProjects")) || [];
