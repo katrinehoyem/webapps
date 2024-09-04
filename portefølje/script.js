@@ -24,7 +24,8 @@ form.addEventListener('add-project-button', function(event){
     const title = formData.title;
     const link = formData.link;
     const description = formData.description;
-   console.log(`title: ${title}, link: ${link}, description: ${description}`);
+    console.log(`title: ${title}, link: ${link}, description: ${description}`);
+   
    const newProject ={
     title: title, link: link, description: description
     };
@@ -34,3 +35,19 @@ form.addEventListener('add-project-button', function(event){
 
 });
 
+try {
+    const response = await fetch("http://localhost:3000/add", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify(newProject),
+    })
+} catch (error) {
+    console.error("An error occured sending the data to the server");
+}
+
+function loadProjects(){
+    let projects = JSON.parse(window.localStorage.getItem("myProjects")) || [];
+    console.log(projects);
+}

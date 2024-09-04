@@ -24,7 +24,7 @@
     <main>
         <section class="make-new-project">
             <h3>Submit a new project</h3>
-            <form id="myProjects">
+            <form id="myProjects" method="post">
                 <label for="title">Project title:</label>
                 <input id="title" name="title" type="text">
                 <label for="link">Link to repo:</label>
@@ -33,34 +33,16 @@
                 <input id="description" name="description" type="text">
                 <button id="add-project-button">Submit project</button> 
             </form>
-            <script src="script.js"></script>
         </section>
-        <section class="my-projects-container">
+        <section id="projects">
             <h3>My Projects</h3>
-            <article class="project-item">
-                <h4>Project 1</h4>
-                <p>description</p>
-                <a href="/#">Go to project 1</a>
-            </article>
-            <article class="project-item">
-                <h4>Project 2</h4>
-                <p>description</p>
-                <a href="/#">Go to project 2</a>
-            </article>
-            <article class="project-item">
-                <h4>Project 3</h4>
-                <p>description</p>
-                <a href="/#">Go to project 3</a>
-            </article>
-            <article class="project-item">
-            <h4>Project 4</h4>
-            <p>description</p>
-            <a href="/#">Go to project 4</a>
-            </article>
+            <ul id="project-list"></ul>
         </section>
     </main>
     <footer>
         <p>Høgskolen i Østfold   Katrine Høyem   GITHUBLNIK</p>
     </footer>
+    <script src="script.js"></script>
+
   </body>
 </html>
