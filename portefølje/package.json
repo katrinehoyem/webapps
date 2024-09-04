@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.12.1",
+    "fs": "^0.0.1-security",
+    "fs.promises": "^0.1.2",
     "hono": "^4.5.9",
     "zod": "^3.23.8"
   }

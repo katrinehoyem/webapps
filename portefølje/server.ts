@@ -2,16 +2,18 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { serveStatic } from "@hono/node-server/serve-static";
-import { ProjectSchema, type Projects } from "./types";
+import fs from 'node:fs/promises';
+import { ProjectSchema, type Project } from "./types";
 const app = new Hono();
 
 app.use("/*", cors());
 
 app.use("/static/*", serveStatic({ root: "./" }));
 
+const projects: Project[] = [];
 
 app.get("/json", async (c) => {
-  const data = await fs.readFile("./static/data.json", "utf8");
+  const data = await fs.readFile("./projects.json", "utf8");
   const dataAsJson = JSON.parse(data);
   return c.json(dataAsJson);
 });
@@ -26,12 +28,12 @@ app.post("/add", async (c) => {
   projects.push(project);
 
   // Returnerer en liste med alle habits. Bruker generisk type for å fortelle at vi returnerer en array av Habit
-  return c.json<project[]>(projects, { status: 201 });
+  return c.json<Project[]>(projects, { status: 201 });
 });
 
 app.get("/", (c) => {
   // Returnerer en liste med alle habits. Bruker generisk type for å fortelle at vi returnerer en array av Habit
-  return c.json<Projects[]>(projects);
+  return c.json<Project[]>(projects);
 });
 
 const port = 3999;

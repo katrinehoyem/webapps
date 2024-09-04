@@ -12,8 +12,10 @@
 const form = document.getElementById('myProjects');
 const projects= [];
 
-form.addEventListener('add-project-button', aync, function(event){
-    event.preventDefault();
+form.addEventListener("submit", async (event) => {
+
+    console.log("#¤!")
+    event.preventDefault(); 
 
     const formData = {};
     new FormData(form).forEach((value, key) => {
@@ -32,22 +34,43 @@ form.addEventListener('add-project-button', aync, function(event){
 
     projects.push(newProject);
     try {
-        const response = await fetch("http://localhost:3000/add", {
+        const response = await fetch("http://localhost:3999/add", {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
             },
             body: JSON.stringify(newProject),
         })
+
+        console.log(response);
     } catch (error) {
         console.error("An error occured sending the data to the server");
     }
     
+    form.reset();
 
+    loadProjects();
 });
 
+// loadFromAPI
 
 function loadProjects(){
-    let projects = JSON.parse(window.localStorage.getItem("myProjects")) || [];
-    console.log(projects);
+    fetch('http://localhost:3999/')
+    .then(response => response.json())
+    .then(data => {
+
+        const parent = document.getElementById('project-list');
+        parent.innerHTML = '';
+        for (const project of data){
+            const projectElement = document.createElement('div');
+            projectElement.innerHTML = `
+            <h2>${project.title}</h2>
+            <a href="${project.link}">Link</a>
+            <p>${project.description}</p>
+            `;
+            parent.appendChild(projectElement);
+        }
+    });
 }
+
+loadProjects();
