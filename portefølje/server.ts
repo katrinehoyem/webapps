@@ -20,19 +20,15 @@ app.get("/json", async (c) => {
 
 app.post("/add", async (c) => {
   const newProject = await c.req.json();
-  // Validerer at dataen vi mottar er en gyldig Habit
   const project = ProjectSchema.parse(newProject);
-  // Sjekker om habit er en gyldig Habit, og returnerer en feilmelding hvis ikke
   if (!project) return c.json({ error: "Invalid habit" }, { status: 400 });
   console.log(project);
   projects.push(project);
 
-  // Returnerer en liste med alle habits. Bruker generisk type for å fortelle at vi returnerer en array av Habit
   return c.json<Project[]>(projects, { status: 201 });
 });
 
 app.get("/", (c) => {
-  // Returnerer en liste med alle habits. Bruker generisk type for å fortelle at vi returnerer en array av Habit
   return c.json<Project[]>(projects);
 });
 
