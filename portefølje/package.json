@@ -2,7 +2,7 @@
   "engines": {
     "node": ">=20.6.0"
   },
-  "name": "webapp",
+  "name": "webapps",
   "private": true,
   "version": "0.0.0",
   "type": "module",
