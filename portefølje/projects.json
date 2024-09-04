@@ -1,7 +1,8 @@
 {
-    "ID": 1,
-    "Title": "Katrine's project",
-    "Discription": "In this project i will make something cool",
-    "Link": "link til repo",
-    "Date": "01.09.2024"
+    
+    "title": "Katrine's project",
+    "link": "link til repo",
+    "discription": "In this project i will make something cool"
+    
+    
 }
