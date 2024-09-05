@@ -40,6 +40,19 @@ const addWeatherData = async (weather: unknown) => {
     }
   };
 
-const form = document.querySelector("form");
+const form = document.querySelector("form") as HTMLFormElement;
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const place =(form.elements.namedItem("place") as HTMLInputElement)?.value;
+    const today =(form.elements.namedItem("today") as HTMLInputElement)?.value;
+    const tomorrow =(form.elements.namedItem("tomorrow") as HTMLInputElement)?.value;
+
+    try {
+        await addWeatherData({ place, tomorrow, today });
+      } catch (error) {
+        
+}
+})
+
 
 loadWeatherData();
