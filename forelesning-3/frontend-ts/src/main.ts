@@ -14,6 +14,8 @@ const loadWeatherData = async() => {
 
     const data = await response.json()
     console.log(data.data)
+    const jsonId = document.getElementById("json");
+    if (jsonId) jsonId.innerHTML = JSON.stringify(data.data, null, 2)
 };
 
 const addWeatherData = async (weather: unknown) => {
@@ -30,7 +32,9 @@ const addWeatherData = async (weather: unknown) => {
       console.log(response.ok);
       const data = await response.json();
       console.log(data);
+
       loadWeatherData();
+
     } catch (error) {
       console.error(error);
     }
