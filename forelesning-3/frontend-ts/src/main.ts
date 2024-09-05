@@ -40,4 +40,6 @@ const addWeatherData = async (weather: unknown) => {
     }
   };
 
+const form = document.querySelector("form");
+
 loadWeatherData();
