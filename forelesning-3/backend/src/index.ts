@@ -1,6 +1,7 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { getWeatherData } from "./lib";
 
 const app = new Hono();
 
@@ -10,8 +11,9 @@ app.use(
   })
 );
 
-app.get("/", (c) => {
-  return c.json({ data: "Hello, world!" });
+app.get("/", async (c) => {
+  const data = await getWeatherData();
+  return c.json({ data});
 });
 
 const port = 3999;
