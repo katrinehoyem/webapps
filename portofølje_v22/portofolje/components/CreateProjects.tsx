@@ -124,15 +124,15 @@ export default function Project({ onAddProject }: AddProjectFormProps) {
 
   return (
     <>
-      <section id="legg_til_prosjekt">
+      <section id="add_new_project">
         <form onSubmit={handleSubmit}>
           <label htmlFor="title">
-            Prosjekt tittel:
+            Prosject title:
             <input
               type="text"
               id="title"
               name="title"
-              placeholder="Prosjekt navn..."
+              placeholder="Project name"
               onChange={updateFormTitle}
               onFocus={() => {
                 console.log("onFocus");
@@ -146,12 +146,12 @@ export default function Project({ onAddProject }: AddProjectFormProps) {
             />
           </label>
           <label htmlFor="description">
-            Beskrivelse:
+            Description:
             <input
               type="text"
               id="description"
               name="description"
-              placeholder="Beskrivelse..."
+              placeholder="description"
               onChange={updateFormDescription}
               onFocus={() => {
                 console.log("onFocus");
@@ -164,16 +164,16 @@ export default function Project({ onAddProject }: AddProjectFormProps) {
               value={description}
             />
             {!descriptionValid && descriptionIsDirty ? (
-              <p className="warning">OBS! Teksten må være minst 3 tegn langt</p>
+              <p className="warning">NB! Name must be over 3 characters long</p>
             ) : null}
           </label>
           <label htmlFor="category">
-            Kategori:
+            Category:
             <input
               type="text"
               id="category"
               name="category"
-              placeholder="Kategorier..."
+              placeholder="Category"
               onChange={updateFormCategory}
               onFocus={() => {
                 console.log("onFocus");
@@ -186,7 +186,7 @@ export default function Project({ onAddProject }: AddProjectFormProps) {
               value={categories}
             />
             {!categoryValid && categoryIsDirty ? (
-              <p className="warning">OBS! Input må være minst 3 tegn langt</p>
+              <p className="warning">NB! Input must be over 3 characters long</p>
             ) : null}
           </label>
           <label htmlFor="repolink">
@@ -208,14 +208,14 @@ export default function Project({ onAddProject }: AddProjectFormProps) {
               value={repolink}
             />
             {!repolinkValid && repolinkIsDirty ? (
-              <p className="warning">OBS! Linken må være minst 3 tegn langt</p>
+              <p className="warning">NB! Input must be over 3 characters long</p>
             ) : null}
           </label>
           <pre>
             {JSON.stringify({ title, description, categories, repolink })}
           </pre>
 
-          <button type="submit">Legg til prosjekt</button>
+          <button type="submit">Add project</button>
         </form>
       </section>
     </>

@@ -1,3 +1,4 @@
+import React from "react";
 import { ExperienceProps } from "./Types";
 
 function Experience({ name }: { name: string }) {
@@ -7,11 +8,11 @@ function Experience({ name }: { name: string }) {
 export default function Experiences(props: Readonly<ExperienceProps>) {
   const { experiences = [] } = props;
   return (
-    <section id="erfaringer">
-      <h3>Erfaringer:</h3>
+    <section id="experience">
+      <h3>Experiences:</h3>
       <ul>
         {experiences.length === 0 ? (
-          <p>Du har ingen erfaringer</p>
+          <p>You have no experience</p>
         ) : (
           experiences.map((experience) => (
             <li key={experience.name}>{experience.name}</li>
