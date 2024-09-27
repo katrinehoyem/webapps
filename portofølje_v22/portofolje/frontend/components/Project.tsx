@@ -83,7 +83,7 @@ export default function Projects(props: Readonly<ProjectsProps>) {
                 repo_link={project.repo_link}
               />
               <button
-                id="remove_prosject"
+                id="remove_project"
                 onClick={() => removeProject(project.id)}
                 type="button"
               >
