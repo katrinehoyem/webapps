@@ -70,7 +70,7 @@ export default function Projects(props: Readonly<ProjectsProps>) {
     <>
       <section id="projects">
         {projects.length === 0 ? (
-          <p>Du har ingen projects</p>
+          <p>You have no projects</p>
         ) : (
           projects.map((project) => (
             <article key={project.id}>

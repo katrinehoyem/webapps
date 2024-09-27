@@ -1,8 +1,5 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Experiences from "./components/Experience";
+import Experiences from "../../../frontend/src/components/Experience";
 
 function App() {
   const student = 'Halgeir Geirson'
