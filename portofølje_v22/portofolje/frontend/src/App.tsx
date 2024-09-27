@@ -1,5 +1,7 @@
 import './App.css'
-import Experiences from "../../../frontend/src/components/Experience";
+import Experiences from "../components/Experience";
+import Contact from "../components/Contact"
+import Header from "../components/Header"
 
 function App() {
   const student = 'Halgeir Geirson'

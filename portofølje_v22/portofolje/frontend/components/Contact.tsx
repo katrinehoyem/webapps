@@ -9,11 +9,11 @@ export default function Contact(props: Readonly<ContactProps>) {
     alert("Mail:" + " " + email);
   };
 
-  // Brukes til validering av input til 'name'
+
   const [nameValid, setNameValid] = useState(false);
   const [nameIsDirty, setNameIsDirty] = useState(false);
   const [nameIsTouched, setNameIsTouched] = useState(false);
-  // Brukes til validering av input til 'textarea'
+
   const [textareaValid, setTextAreaValid] = useState(false);
   const [textareaIsDirty, setTextAreaIsDirty] = useState(false);
   const [textareaIsTouched, setTextAreaIsTouched] = useState(false);
@@ -78,15 +78,15 @@ export default function Contact(props: Readonly<ContactProps>) {
   };
 
   return (
-    <section id="kontakt">
+    <section id="Contact">
       <p>Contact infomation: {email}</p>
-      <button id="kontaktinfo" onClick={handleClick}>
+      <button id="Contactinfo" onClick={handleClick}>
         Show my Contact infomation 
       </button>
       <pre>{JSON.stringify({ name, textarea })}</pre>
       <form onSubmit={contactStudent}>
         <label htmlFor="name">
-          Navn:
+          Name:
           <input
             type="text"
             id="name"
@@ -108,7 +108,7 @@ export default function Contact(props: Readonly<ContactProps>) {
           ) : null}
         </label>
         <label htmlFor="textarea">
-          Tekst:
+          Text:
           <input
             type="text"
             id="textarea"

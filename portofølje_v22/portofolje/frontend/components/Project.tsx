@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react";
-import CreateProject from "./CreateProject";
+import CreateProject from "./CreateProjects";
 import { useEffect, useState } from "react";
 import { ProjectProps } from "./Types";
 import Total from "./Total";
@@ -7,13 +7,13 @@ import { ofetch } from "ofetch";
 import React from "react";
 
 function Project(props: Readonly<PropsWithChildren<ProjectProps>>) {
-  const { children, project_name, description, catagory, repo_link } = props;
+  const { children, project_name, description, category, repo_link } = props;
   return (
     <>
       {children}
       <h3>{project_name}</h3>
       <p>description: {description}</p>
-      <p>catagory: {catagory.join(", ")}</p>
+      <p>catagory: {category.jocfin(", ")}</p>
       <a>Link: {repo_link}</a>
     </>
   );
@@ -79,7 +79,7 @@ export default function Projects(props: Readonly<ProjectsProps>) {
                 id={project.id}
                 project_name={project.project_name}
                 description={project.description}
-                catagory={project.catagory}
+                category={project.category}
                 repo_link={project.repo_link}
               />
               <button

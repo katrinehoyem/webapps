@@ -127,7 +127,7 @@ export default function Project({ onAddProject }: AddProjectFormProps) {
       <section id="add_new_project">
         <form onSubmit={handleSubmit}>
           <label htmlFor="title">
-            Prosject title:
+            Project title:
             <input
               type="text"
               id="title"
