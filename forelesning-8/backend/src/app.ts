@@ -28,8 +28,10 @@ app.post('/api/students', async(c) => {
   const {name} = data;
   if (!isNameValid(name)) 
     return c.json ({error: "invalid name"}, {status: 400});
+
+
   students.push({id: crypto.randomUUID(), name});
-  return c.json(students, {status: 201});
+  return c.json({success: true, data: students}, {status: 201});
 
 });
 
