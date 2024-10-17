@@ -21,6 +21,9 @@ importers:
       '@antfu/eslint-config':
         specifier: ^2.27.0
         version: 2.27.0(@typescript-eslint/utils@8.2.0(eslint@9.9.0)(typescript@5.5.4))(@vue/compiler-sfc@3.4.38)(eslint@9.9.0)(typescript@5.5.4)
+      '@types/better-sqlite3':
+        specifier: ^7.6.11
+        version: 7.6.11
       '@types/node':
         specifier: ^22.5.0
         version: 22.5.0
@@ -367,6 +370,9 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.40.0'
+
+  '@types/better-sqlite3@7.6.11':
+    resolution: {integrity: sha512-i8KcD3PgGtGBLl3+mMYA8PdKkButvPyARxA7IQAd6qeslht13qxb1zzO8dRCtE7U3IoJS782zDBAeoKiM695kg==}
 
   '@types/eslint@8.56.11':
     resolution: {integrity: sha512-sVBpJMf7UPo/wGecYOpk2aQya2VUGeHhe38WG7/mN5FufNSubf5VT9Uh9Uyp8/eLJpu1/tuhJ/qTo4mhSB4V4Q==}
@@ -1960,6 +1966,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - typescript
+
+  '@types/better-sqlite3@7.6.11':
+    dependencies:
+      '@types/node': 22.5.0
 
   '@types/eslint@8.56.11':
     dependencies:
