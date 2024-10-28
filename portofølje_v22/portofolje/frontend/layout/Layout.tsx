@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react";
-import Navigation from "./Navigation";
+//import Navigation from "./Navigation";
 import Footer from "../src/components/Footer";
 import React from "react";
 
