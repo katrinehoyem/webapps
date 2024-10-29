@@ -80,6 +80,17 @@ function NewProject({ addProject }) {
             required
           />
         </div>
+        <div>
+          <label htmlFor="tags">tags:</label>
+          <textarea
+            id="tags"
+            name="tags"
+            value={project.tags}
+            onChange={handleChange}
+            placeholder="Enter project tags"
+            required
+          />
+        </div>
 
         <button type="submit">Create</button>
       </form>

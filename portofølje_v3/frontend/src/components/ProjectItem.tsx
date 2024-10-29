@@ -1,9 +1,14 @@
 import React from 'react';
+import { DateValues, formatDistance } from "date-fns";
+import { nb } from "date-fns/locale";
 
 interface Project {
   title: string;
   repoLink: string;
   description: string;
+  publishedAt:  DateValues;
+  tags: string;
+
 }
 
 interface ProjectItemProps {
@@ -25,3 +30,6 @@ function ProjectItem({ project }: ProjectItemProps): JSX.Element {
 }
 
 export default ProjectItem;
+export namespace ProjectItem.JSX{
+
+};

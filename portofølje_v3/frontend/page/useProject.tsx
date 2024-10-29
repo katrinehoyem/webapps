@@ -8,7 +8,7 @@ export function useProjects() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [streaks, setStreaks] = useState<StreakType[]>([]);
-  const [habits, setProjects] = useState<ProjectType[]>([]);
+  const [projects, setProjects] = useState<ProjectType[]>([]);
 
   const isLoading = !!loading;
   const isError = !!error;

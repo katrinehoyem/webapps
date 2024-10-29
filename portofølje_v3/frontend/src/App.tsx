@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Main from './components/Main';
 import Footer from './components/Footer';
 
+
 interface LayoutProps {
   children: ReactNode;
 }
@@ -26,3 +27,6 @@ export function App(): JSX.Element {
 }
 
 export default App;
+export namespace App.JSX{
+
+};

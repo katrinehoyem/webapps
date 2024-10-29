@@ -14,3 +14,6 @@ serve({
   fetch: app.fetch,
   port
 })
+import { endpoints } from "./config/urls";
+
+const url = endpoints.habits;

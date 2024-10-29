@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import ProjectItem from './ProjectItem';
+import { DateValues } from 'date-fns';
 
 interface Project {
   title: string;
   repoLink: string;
   description: string;
+  publishedAt: DateValues;
+  public: boolean;
+  status: string;
+  tags: string;
 }
 
 function ProjectList(): JSX.Element {
