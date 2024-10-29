@@ -10,6 +10,7 @@ interface Project {
 
 function Main(): JSX.Element {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [error, setError] = useState<Project[]>([]);
 
   const addProject = (updatedProjects: Project[]): void => {
     setProjects(updatedProjects);
