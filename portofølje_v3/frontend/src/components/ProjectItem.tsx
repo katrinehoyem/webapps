@@ -25,6 +25,13 @@ function ProjectItem({ project }: ProjectItemProps): JSX.Element {
       <p>
         <strong>Description:</strong> {project.description}
       </p>
+      <p>
+        <strong>published at:</strong> {project.publishedAt}
+      </p>
+      <p>
+        <strong>tags:</strong> {project.tags}
+      </p>
+
     </div>
   );
 }
