@@ -19,7 +19,7 @@ function Layout({ children }: LayoutProps) {
 
 export function App(): JSX.Element {
   return (
-    <Layout>
+    <Layout children={undefined}>
       <Main />
     </Layout>
   );

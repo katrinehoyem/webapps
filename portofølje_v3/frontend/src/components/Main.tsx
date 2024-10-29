@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NewProject from './NewProject';
 import ProjectList from './ProjectList';
+import Project from './ProjectItem';
 
 interface Project {
   title: string;
