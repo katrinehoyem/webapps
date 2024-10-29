@@ -1,13 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import projectApi from "../services/api";
-import streaksApi from "@/features/streaks/services/api";
 
-import type { Project as ProjectType, Id, Streak as StreakType } from "@/types";
+import type { Project as ProjectType, Id, } from "@/types";
 
 export function useProjects() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [streaks, setStreaks] = useState<StreakType[]>([]);
   const [projects, setProjects] = useState<ProjectType[]>([]);
 
   const isLoading = !!loading;
@@ -17,13 +15,10 @@ export function useProjects() {
     try {
       setLoading(true);
       const projectPromise = projectApi.list();
-      const streakPromise = streaksApi.list();
-      const [habits, streaks] = await Promise.all([
+      const [project] = await Promise.all([
         projectPromise,
-        streakPromise,
       ]);
-      setProjects(habits ?? []);
-      setStreaks(streaks ?? []);
+      setProjects(project ?? []);
     } catch (error) {
       setError("Feilet ved henting av data");
     } finally {
@@ -69,7 +64,6 @@ export function useProjects() {
     get: fetchData,
     isLoading,
     isError,
-    streaks,
     projects,
     error,
   };
