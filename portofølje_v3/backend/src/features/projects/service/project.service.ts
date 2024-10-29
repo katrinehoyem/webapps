@@ -1,7 +1,7 @@
 import type { Result } from "@/types";
 import {
-  projectRepository,
-  type projectRepository,
+  ProjectRepository,
+  type ProjectRepository,
 } from "./project.repository";
 
 import {
@@ -12,8 +12,9 @@ import {
   type Ppdateproject,
 } from "./project.schema";
 
-import { createproject, createprojectResponse } from "./project.mapper";
+import { createproject, createprojectResponse } from "././project.mapper";
 import type { Query } from "@/lib/query";
+import { CreateProject } from "../types/project.schema";
 
 export const createprojectService = (projectRepository: ProjectRepository) => {
   const getById = async (id: string): Promise<Result<Project | undefined>> => {
@@ -30,7 +31,7 @@ export const createprojectService = (projectRepository: ProjectRepository) => {
     };
   };
 
-  const create = async (data: Createproject): Promise<Result<string>> => {
+  const create = async (data: CreateProject): Promise<Result<string>> => {
     const project = createproject(data);
 
     if (!validateCreateproject(project).success) {
@@ -67,6 +68,6 @@ export const createprojectService = (projectRepository: ProjectRepository) => {
   };
 };
 
-export const projectService = createprojectService(projectRepository);
+export const projectService = createprojectService(ProjectRepository);
 
 export type projectService = ReturnType<typeof createprojectService>;
