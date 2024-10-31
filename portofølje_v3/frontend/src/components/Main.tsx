@@ -7,6 +7,8 @@ interface Project {
   title: string;
   repoLink: string;
   description: string;
+  publishedAt: string;
+  tags: string;
 }
 
 function Main(): JSX.Element {

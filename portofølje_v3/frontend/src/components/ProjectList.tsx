@@ -6,8 +6,7 @@ interface Project {
   title: string;
   repoLink: string;
   description: string;
-  publishedAt: DateValues;
-  public: boolean;
+  publishedAt: string;
   status: string;
   tags: string;
 }

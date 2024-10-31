@@ -1,4 +1,4 @@
-import type { Pagination } from "@/lib/query";
+import type { Pagination } from "../lib/query";
 
 export type Result<T> =
   | {

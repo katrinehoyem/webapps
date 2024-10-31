@@ -1,13 +1,13 @@
 import fs from "node:fs/promises";
 import { join } from "node:path";
 import type { DB } from "./db";
-import type { project } from "../features/projects/projects.schema";
+import type { Project } from "../features/projects/types/project.schema";
 
 export const seed = async (db: DB) => {
   const path = join(import.meta.dirname, "data.json");
   const file = await fs.readFile(path, "utf-8");
   const { projects } = JSON.parse(file) as {
-    projects: project[];
+    projects: Project[];
   };
 
   const insertproject = db.prepare(`

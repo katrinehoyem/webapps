@@ -1,13 +1,13 @@
-import { db, type DB } from "@/db/db";
+import { db, type DB } from "../../../db/db";
 import type {
-  Createproject,
-  project,
-  projectFromDb,
-  Updateproject,
-} from "./project.schema";
-import type { Result } from "@/types";
+  CreateProject,
+  Project,
+  ProjectFromDb,
+  UpdateProject,
+} from "../types/project.schema";
+import type { Result } from "../../../types/index";
 import { fromDb, toDb } from "../mappers/project.mapper";
-import type { Query } from "@/lib/query";
+import type { Query } from "../../../lib/query";
 
 export const createprojectRepository = (db: DB) => {
   const exist = async (title: string): Promise<boolean> => {
@@ -18,7 +18,7 @@ export const createprojectRepository = (db: DB) => {
     return data.count > 0;
   };
 
-  const getBytitle = async (title: string): Promise<Result<project>> => {
+  const getBytitle = async (title: string): Promise<Result<Project>> => {
     try {
       const project = await exist(title);
       if (!project)
@@ -27,7 +27,7 @@ export const createprojectRepository = (db: DB) => {
           error: { code: "NOT_FOUND", message: "project not found" },
         };
       const query = db.prepare("SELECT * FROM projects WHERE title = ?");
-      const data = query.get(title) as projectFromDb;
+      const data = query.get(title) as ProjectFromDb;
       return {
         success: true,
         data: fromDb(data),
@@ -43,22 +43,22 @@ export const createprojectRepository = (db: DB) => {
     }
   };
 
-  const list = async (params?: Query): Promise<Result<project[]>> => {
+  const list = async (params?: Query): Promise<Result<Project[]>> => {
     try {
-      const { repoLink, pageSize = 10, page = 0 } = params ?? {};
+      const { title, pageSize = 10, page = 0 } = params ?? {};
 
       const offset = (Number(page) - 1) * Number(pageSize);
 
       const hasPagination = Number(page) > 0;
 
       let query = "SELECT * FROM projects";
-      query += repoLink ? `WHERE repoLink LIKE '%${repoLink}%'` : "";
+      query += title ? `WHERE repoLink LIKE '%${title}%'` : "";
       query += pageSize ? ` LIMIT ${pageSize}` : "";
       query += offset ? ` OFFSET ${offset}` : "";
 
       const statement = db.prepare(query);
 
-      const data = statement.all() as projectFromDb[];
+      const data = statement.all() as ProjectFromDb[];
 
       const { total } = db
         .prepare("SELECT COUNT(*) as total from projects")
@@ -95,7 +95,7 @@ export const createprojectRepository = (db: DB) => {
     }
   };
 
-  const create = async (data: Createproject): Promise<Result<string>> => {
+  const create = async (data: CreateProject): Promise<Result<string>> => {
     try {
       const project = toDb(data);
 
@@ -126,7 +126,7 @@ export const createprojectRepository = (db: DB) => {
     }
   };
 
-  const update = async (data: Updateproject): Promise<Result<project>> => {
+  const update = async (data: UpdateProject): Promise<Result<Project>> => {
     try {
       const projectExist = await exist(data.title);
 

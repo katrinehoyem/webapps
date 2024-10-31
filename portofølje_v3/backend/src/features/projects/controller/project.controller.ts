@@ -1,9 +1,10 @@
 import { Hono } from "hono";
-import { ProjectService, type ProjectService } from "./Project.service";
-import { errorResponse, type ErrorCode } from "@/lib/error";
-import { validateQuery } from "@/lib/query";
+import { createprojectService, projectService  } from "../service/project.service";
+import { errorResponse, type ErrorCode } from "../././../../lib/error";
+import { validateQuery } from "../../../lib/query";
+import { title } from "process";
 
-export const createProjectController = (ProjectService: ProjectService) => {
+export const createProjectController = (ProjectService: projectService) => {
   const app = new Hono();
 
   app.get("/", async (c) => {
@@ -21,8 +22,8 @@ export const createProjectController = (ProjectService: ProjectService) => {
   });
 
   app.get("/:id", async (c) => {
-    const id = c.req.param("id");
-    const result = await ProjectService.getById(id);
+    const title = c.req.param("title");
+    const result = await createprojectService.getBytitle(title);
 
     if (!result.success)
       return errorResponse(
@@ -46,7 +47,7 @@ export const createProjectController = (ProjectService: ProjectService) => {
   });
 
   app.patch("/:id", async (c) => {
-    const id = c.req.param("id");
+    const id = c.req.param("title");
     const data = await c.req.json();
 
     const result = await ProjectService.update({ id, ...data });
@@ -60,8 +61,8 @@ export const createProjectController = (ProjectService: ProjectService) => {
   });
 
   app.delete("/:id", async (c) => {
-    const id = c.req.param("id");
-    const result = await ProjectService.remove(id);
+    const id = c.req.param("title");
+    const result = await ProjectService.remove(title);
     if (!result.success)
       return errorResponse(
         c,
@@ -74,4 +75,4 @@ export const createProjectController = (ProjectService: ProjectService) => {
   return app;
 };
 
-export const ProjectController = createProjectController(ProjectService);
+export const ProjectController = createProjectController(projectService);

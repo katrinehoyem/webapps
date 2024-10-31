@@ -9,6 +9,10 @@ export const projectsSchema = z.object({
 });
 
 
+export const projectResponseSchema = projectsSchema.extend({
+  title: z.string(),
+ 
+});
 
 export const updateProjectSchema = projectsSchema.omit({
   description: true,
@@ -27,22 +31,28 @@ export type Project = z.infer<typeof projectsSchema>;
 export const projectFromDbSchema = z.object({
   title: z.string(),
   repoLink: z.string(),
-  created_at: z.string(),
-  updated_at: z.string(),
+  description: z.string(),
+  publishedAt: z.string(),
+  tags: z.string()
 });
 
 export type ProjectFromDb = z.infer<typeof projectFromDbSchema>;
 export type CreateProject = z.infer<typeof createProjectSchema>;
+export type ProjectResponse = z.infer<typeof projectResponseSchema>
 export type UpdateProject = z.infer<typeof updateProjectSchema>;
 
-export const valtitleateCreateproject = (data: unknown) => {
+export const valdateCreateproject = (data: unknown) => {
   return createProjectSchema.safeParse(data);
 };
 
-export const valtitleateUpdateproject = (data: unknown) => {
+export const validateUpdateproject = (data: unknown) => {
   return updateProjectSchema.safeParse(data);
 };
 
-export const valtitleateproject = (data: unknown) => {
+export const validateProjectResponse = (data: unknown) => {
+  return projectResponseSchema.safeParse(data);
+};
+
+export const validateproject = (data: unknown) => {
   return projectsSchema.safeParse(data);
 };
